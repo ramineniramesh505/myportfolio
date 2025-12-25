@@ -223,9 +223,32 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){.header-container{padding:15px 20px;} }
 @media(max-width:768px){
-  .hero-container{flex-direction:column;align-items:center;text-align:center;}
-  .profile-img{width:200px;height:200px;}
-  nav{justify-content:center;}
+  .hero-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:20px; /* spacing between content */
+  }
+  .profile-img{
+    width:180px;
+    height:180px;
+  }
+  .hero-content h1{
+    font-size:2rem;
+  }
+  .tagline{
+    font-size:1.3rem;
+  }
+  .action-buttons{
+    flex-direction:column;
+    gap:12px;
+  }
+  nav{
+    justify-content:center;
+  }
+  section{
+    padding:50px 15px; /* less padding for mobile */
+  }
 }
 </style>
 </head>
@@ -469,3 +492,4 @@ window.addEventListener('scroll',function(){
 </script>
 </body>
 </html>
+
