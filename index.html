@@ -42,6 +42,20 @@ nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 .cv-button{background:#4CAF50;font-weight:600;display:flex;align-items:center;font-size:0.95rem}
 .nav-link i, .cv-button i {margin-right:8px; color: #fff;}
 
+/* Hamburger menu */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap:5px;
+}
+.nav-toggle span {
+  width:25px;
+  height:3px;
+  background:#fff;
+  border-radius:2px;
+}
+
 /* scroll progress bar */
 #scroll-progress{
   position:fixed;top:0;left:0;
@@ -225,8 +239,10 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
 @media (max-width: 1024px){.header-container{padding:15px 20px;} }
 @media (max-width: 768px){
   .header-container{flex-direction:column;align-items:center;gap:10px;padding:10px 15px;}
-  nav{justify-content:center;flex-wrap:wrap;gap:10px;}
-  .nav-link, .cv-button{font-size:0.85rem;padding:6px 10px;}
+  nav{flex-direction:column;position:fixed;top:60px;left:-100%;width:100%;background:#222;transition:left 0.3s ease;z-index:999;gap:0;}
+  nav.active{left:0;}
+  .nav-toggle{display:flex;}
+  .nav-link, .cv-button{font-size:0.85rem;padding:10px 20px;width:100%;display:block;}
   .hero-container{flex-direction:column;align-items:center;text-align:center;gap:15px;padding-top:100px;}
   .profile-img{width:150px;height:150px;}
   .hero-content h1{font-size:1.8rem;}
@@ -251,6 +267,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
 <header>
   <div class="header-container">
     <a class="logo" href="#home">Ramesh R<span>.</span></a>
+    <div class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></div>
     <nav id="main-nav">
       <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
       <a href="#skills" class="nav-link"><i class="fas fa-cogs"></i> Technical Skills</a>
@@ -309,8 +326,9 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
 <section id="experience" class="fade-in">
   <div class="section-container">
     <h2>Experience</h2>
+    
     <div class="box">
-      <strong>Tesnus Technology – Cloud Support Engineer</strong> (April 2025 - Present) | Abu Dhabi, UAE
+      <strong><i class="fas fa-building" style="margin-right:6px;color:#4CAF50;"></i>Tesnus Technologies – Cloud Support Engineer</strong> (April 2025 - Present) | Abu Dhabi, UAE
       <ul>
         <li>Configure Linux Servers on both cloud and VMware as per client requirements.</li>
         <li>Implement and enforce baseline OS security configurations and hardening.</li>
@@ -326,8 +344,9 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <li>Handle hardware fault management including component replacements (Disk, CPU, RAM).</li>
       </ul>
     </div>
+    
     <div class="box">
-      <strong>Core42 – System Administrator</strong> (May 2022 - March 2025) | Abu Dhabi, UAE
+      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#2196F3;"></i>Core42 – System Administrator</strong> (May 2022 - March 2025) | Abu Dhabi, UAE
       <ul>
         <li>Create, configure, and implement compute, network, storage & enterprise intelligence services.</li>
         <li>Setup Autoscaling and Elastic Load Balancers for availability and stability.</li>
@@ -347,8 +366,9 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <li>Write technical/internal documentation in Confluence and perform RCA & bug reporting in JIRA.</li>
       </ul>
     </div>
+    
     <div class="box">
-      <strong>Maersk – Linux Cloud Support Engineer</strong> (Feb 2022 - April 2022) | Bangalore, India
+      <strong><i class="fas fa-building" style="margin-right:6px;color:#FF5722;"></i>Maersk – Linux Cloud Support Engineer</strong> (Feb 2022 - April 2022) | Bangalore, India
       <ul>
         <li>Install, configure, and deploy RedHat and SuSE Linux VMs in Azure Cloud.</li>
         <li>Troubleshoot Linux VM issues and perform patching using Ansible Automation.</li>
@@ -358,8 +378,9 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <li>Configure Ethernet and storage switching, LVM management, and server performance tuning.</li>
       </ul>
     </div>
+    
     <div class="box">
-      <strong>Infosys – Technology Analyst</strong> (Aug 2017 - Jan 2022) | Bangalore, India
+      <strong><i class="fas fa-briefcase" style="margin-right:6px;color:#9C27B0;"></i>Infosys – Technology Analyst</strong> (Aug 2017 - Jan 2022) | Bangalore, India
       <ul>
         <li>Provided L1 & L2 Linux system administration support for 1300+ Red Hat and SuSE servers.</li>
         <li>Managed file systems, package installations/upgrades with YUM, RPM, and ZYPPER.</li>
@@ -375,6 +396,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
         <li>Implemented KDUMP, NIC bonding, and provided 24x7 on-call support for critical production environments.</li>
       </ul>
     </div>
+
   </div>
 </section>
 
@@ -395,18 +417,31 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
   <div class="section-container">
     <h2>Certificates</h2>
     <div class="certificates-grid">
+      
       <div class="cert-card">
         <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="AZ-104 Azure Administrator">
         <span>AZ-104 Azure Administrator</span>
       </div>
+      
       <div class="cert-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS SysOps Associate">
         <span>AWS SysOps Associate</span>
       </div>
+      
       <div class="cert-card">
         <img src="https://cdn.bfldr.com/FQEVVFCB/at/35w68gzrmgsxjxqrn5h8vvt/SUSE_Logo-vert_L_Green-pos_sRGB.jpg?auto=webp&format=png" alt="SUSE Certified Administrator">
         <span>SUSE Certified Administrator</span>
       </div>
+      
+      <div class="cert-card">
+        <img src="https://images.credly.com/size/680x680/images/0dc62494-dc94-469a-83af-e35309f27356/blob" alt="Terraform Associate 003">
+        <span>Terraform Associate 003</span>
+      </div>
+      
+      <div class="cert-card">
+        <img src="https://images.credly.com/size/680x680/images/572de0ba-2c59-4816-a59d-b0e1687e45ee/image.png" alt="Red Hat Certified System Administrator">
+        <span>Red Hat Certified System Administrator</span>
+      </div>     
     </div>
   </div>
 </section>
@@ -464,7 +499,6 @@ function checkFadeIn() {
   });
 }
 
-// Run on scroll
 window.addEventListener('scroll', function() {
   let scrollY = window.scrollY;
   header.classList.toggle('scrolled', scrollY > 20);
@@ -488,8 +522,22 @@ window.addEventListener('scroll', function() {
   checkFadeIn();
 });
 
-// Run on page load so hero section shows immediately
 window.addEventListener('load', checkFadeIn);
+
+// ===== MOBILE MENU TOGGLE =====
+const navToggle = document.getElementById('nav-toggle');
+const nav = document.getElementById('main-nav');
+navToggle.addEventListener('click', () => nav.classList.toggle('active'));
+
+// ===== CLOSE MOBILE MENU ON LINK CLICK =====
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+    }
+  });
+});
 </script>
+
 </body>
 </html>
