@@ -275,7 +275,7 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
       <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
       <a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Certifications</a>
       <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-      <a href="Ramesh_CloudSupportEngineer_Resume.pdf" class="cv-button"><i class="fas fa-download"></i> Download CV</a>
+      <a href="Ramesh_CloudSupportEngineer_Resume.pdf" class="cv-button" download="Ramesh_Ramineni_Resume.pdf"><i class="fas fa-download"></i> Download CV</a>
     </nav>
   </div>
 </header>
@@ -289,7 +289,23 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
       <p>Experienced Cloud Support Engineer with expertise in managing and securing Linux servers, ensuring high availability and optimal performance. Skilled in automation, troubleshooting, and configuring services using DevOps tools to streamline operations. Strong background in system administration and network security, with hands-on experience across multi-cloud environments. Adept at implementing efficient, scalable, and secure infrastructure solutions. Passionate about leveraging Linux, Cloud, and DevOps technologies to drive operational efficiency and organizational growth.</p>
       <div class="action-buttons">
         <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
-        <a href="Ramesh_CloudSupportEngineer_Resume.pdf" class="btn btn-secondary"><i class="fas fa-download"></i> Download CV</a>
+        
+<a href="Ramesh_CloudSupportEngineer_Resume.pdf" class="btn btn-primary" download>
+  <i class="fas fa-download"></i> Download CV
+</a>
+
+<script>
+document.getElementById('downloadCV').addEventListener('click', function(e){
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = 'Ramesh_CloudSupportEngineer_Resume.pdf';
+    link.download = 'Ramesh_Ramineni_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+</script>
+
       </div>
       <div class="hero-social">
         <a href="https://www.linkedin.com/in/ramesh-ramineni-6b068397/"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -299,6 +315,26 @@ footer p{margin-top:15px;font-size:0.95rem;color:#ccc;}
       </div>
     </div>
   </div>
+</section>
+
+<!-- PROFESSIONAL SUMMARY -->
+<section id="summary">
+<div class="section-container">
+<h2>Professional Summary</h2>
+<div class="box summary">
+<ul>
+<li>Platform Support and Linux Engineer with 8+ years of experience managing Linux-based infrastructure across enterprise data centers, virtualization, and cloud environments.</li>
+<li>Expert in Linux administration (RHEL, Ubuntu, CentOS, EulerOS), cloud platforms, VMware, and 24/7 production support for mission-critical workloads.</li>
+<li>Hands-on experience in DevOps, automation, and configuration management using Ansible, AWX, Bash scripting, and CI/CD pipelines.</li>
+<li>Proficient in containerization and orchestration with Docker Swarm and Kubernetes, including stateful applications.</li>
+<li>Strong knowledge of ITIL and Agile (Scrum) methodologies with proven documentation and leadership skills.</li>
+<li>Extensive experience in monitoring and observability using Zabbix, Grafana, Cloud Scope, Cloud Eye, and ELK Stack.</li>
+<li>Expertise in cloud security, OS hardening, IAM, PKI, HSMs, and vulnerability remediation.</li>
+<li>Proven ability to design and maintain high-availability platforms with load balancing, autoscaling, and backup strategies.</li>
+<li>Strong troubleshooting and RCA skills ensuring SLA compliance in 24/7 environments.</li>
+</ul>
+</div>
+</div>
 </section>
 
 <!-- TECHNICAL SKILLS -->
